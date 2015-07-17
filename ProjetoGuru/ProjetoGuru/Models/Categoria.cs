@@ -15,7 +15,7 @@ namespace ProjetoGuru.Models
             Pergunta = new HashSet<Pergunta>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CategoriaID { get; set; }
 
         public int? CategoriaParent { get; set; }

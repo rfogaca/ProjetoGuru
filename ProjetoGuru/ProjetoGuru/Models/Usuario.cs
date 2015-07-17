@@ -15,7 +15,7 @@ namespace ProjetoGuru.Models
             UsuarioCredito = new HashSet<UsuarioCredito>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UsuarioID { get; set; }
 
         [StringLength(200)]

@@ -9,7 +9,7 @@ namespace ProjetoGuru.Models
     [Table("UsuarioTipo")]
     public partial class UsuarioTipo
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UsuarioTipoID { get; set; }
 
         [StringLength(30)]

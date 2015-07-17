@@ -9,7 +9,7 @@ namespace ProjetoGuru.Models
     [Table("UsuarioCredito")]
     public partial class UsuarioCredito
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UsuarioCreditoID { get; set; }
 
         public double? Valor { get; set; }
