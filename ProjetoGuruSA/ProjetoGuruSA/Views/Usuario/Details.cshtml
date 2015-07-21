@@ -2,24 +2,21 @@
 
 @{
     ViewBag.Title = "Details";
+
+    if (Session["usuarioID"] == null && Session["usuarioNome"] == null)
+    {
+        Response.Redirect("../../Home");
+    }
 }
 
-<h2>Details</h2>
+<h2>Perfil do Usuário</h2>
 
 <div>
-    <h4>Usuario</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
+            Nome
+            @Session["usuarioTipo"]
         </dt>
 
         <dd>
@@ -27,7 +24,15 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Imagem)
+            E-Mail
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Imagem
         </dt>
 
         <dd>
@@ -35,15 +40,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Senha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Senha)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DataNascimento)
+            Data de Nascimento
         </dt>
 
         <dd>
@@ -51,7 +48,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PaypalToken)
+            Paypal
         </dt>
 
         <dd>
@@ -59,7 +56,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TipoID)
+            Tipo de Usuário
         </dt>
 
         <dd>
@@ -69,6 +66,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UsuarioID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.UsuarioID }) |
+    @Html.ActionLink("Página Inicial", "../Home/Index") |
+    @Html.ActionLink("Nova Pergunta", "../Pergunta/Create")
 </p>

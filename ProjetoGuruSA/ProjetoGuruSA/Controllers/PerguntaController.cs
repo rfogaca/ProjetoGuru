@@ -10,108 +10,116 @@ using ProjetoGuruSA.Models;
 
 namespace ProjetoGuruSA.Controllers
 {
-    public class UsuarioController : Controller
+    public class PerguntaController : Controller
     {
         private Conexao db = new Conexao();
 
-        // GET: Usuario
+        // GET: Pergunta
         public ActionResult Index()
         {
-            //return View(db.Usuario.Where(x => x.Nome == "Fulano" || x.Senha == "Fulano"));
-            return View(db.Usuario.ToList());
+            var pergunta = db.Pergunta.Include(p => p.Categoria).Include(p => p.Usuario);
+            return View(pergunta.ToList());
         }
 
-        // GET: Usuario/Details/5
+        // GET: Pergunta/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            Pergunta pergunta = db.Pergunta.Find(id);
+            if (pergunta == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(pergunta);
         }
 
-        // GET: Usuario/Create
+        // GET: Pergunta/Create
         public ActionResult Create()
         {
+            ViewBag.CategoriaID = new SelectList(db.Categoria, "CategoriaID", "Nome");
+            ViewBag.UsuarioID = new SelectList(db.Usuario, "UsuarioID", "Email");
             return View();
         }
 
-        // POST: Usuario/Create
+        // POST: Pergunta/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UsuarioID,Email,Nome,Imagem,Senha,DataNascimento,PaypalToken,TipoID")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "PerguntaID,UsuarioID,CategoriaID,Imagem,Texto,Status,Data")] Pergunta pergunta)
         {
             if (ModelState.IsValid)
             {
-                db.Usuario.Add(usuario);
+                db.Pergunta.Add(pergunta);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(usuario);
+            ViewBag.CategoriaID = new SelectList(db.Categoria, "CategoriaID", "Nome", pergunta.CategoriaID);
+            ViewBag.UsuarioID = new SelectList(db.Usuario, "UsuarioID", "Email", pergunta.UsuarioID);
+            return View(pergunta);
         }
 
-        // GET: Usuario/Edit/5
+        // GET: Pergunta/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            Pergunta pergunta = db.Pergunta.Find(id);
+            if (pergunta == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            ViewBag.CategoriaID = new SelectList(db.Categoria, "CategoriaID", "Nome", pergunta.CategoriaID);
+            ViewBag.UsuarioID = new SelectList(db.Usuario, "UsuarioID", "Email", pergunta.UsuarioID);
+            return View(pergunta);
         }
 
-        // POST: Usuario/Edit/5
+        // POST: Pergunta/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UsuarioID,Email,Nome,Imagem,Senha,DataNascimento,PaypalToken,TipoID")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "PerguntaID,UsuarioID,CategoriaID,Imagem,Texto,Status,Data")] Pergunta pergunta)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuario).State = EntityState.Modified;
+                db.Entry(pergunta).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(usuario);
+            ViewBag.CategoriaID = new SelectList(db.Categoria, "CategoriaID", "Nome", pergunta.CategoriaID);
+            ViewBag.UsuarioID = new SelectList(db.Usuario, "UsuarioID", "Email", pergunta.UsuarioID);
+            return View(pergunta);
         }
 
-        // GET: Usuario/Delete/5
+        // GET: Pergunta/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            Pergunta pergunta = db.Pergunta.Find(id);
+            if (pergunta == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(pergunta);
         }
 
-        // POST: Usuario/Delete/5
+        // POST: Pergunta/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            db.Usuario.Remove(usuario);
+            Pergunta pergunta = db.Pergunta.Find(id);
+            db.Pergunta.Remove(pergunta);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -123,20 +131,6 @@ namespace ProjetoGuruSA.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        public ActionResult Login(Usuario usuario)
-        {
-            var autenticacao = db.Usuario.Where(a => a.Email.Equals(usuario.Email) && a.Senha.Equals(usuario.Senha)).FirstOrDefault();
-            if (autenticacao != null)
-            {
-               var id = Session["usuarioID"] = autenticacao.UsuarioID.ToString();
-               var nome = Session["usuarioNome"] = autenticacao.Nome.ToString();
-               var tipo = Session["usuarioTipo"] = autenticacao.TipoID.ToString();
-               var email = Session["usuarioEmail"] = autenticacao.Email.ToString();
-                return RedirectToAction("../Usuario/Details/"+id);
-            }
-            return View(usuario);
         }
     }
 }

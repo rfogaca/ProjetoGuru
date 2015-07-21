@@ -2,6 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
+    if (Session["usuarioID"] == null && Session["usuarioNome"] == null)
+    {
+        Response.Redirect("../Home");
+    }
 }
 
 <h2>Index</h2>
@@ -9,8 +13,12 @@
 <p>
     @Html.ActionLink("Cadastro de Usuário", "Create")
 </p>
+
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
@@ -37,6 +45,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioID)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
