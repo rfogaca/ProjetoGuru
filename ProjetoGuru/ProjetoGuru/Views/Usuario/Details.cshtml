@@ -1,0 +1,65 @@
+﻿@model ProjetoGuru.Models.Usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Perfil do Usuario</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            E-Mail
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+       
+        <dt>
+            Tipo do Usuário
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioTipo.Tipo)
+        </dd>
+
+        <dt>
+            Imagem
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagem)
+        </dd>
+
+        <dt>
+            Data de Nascimento
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+
+        <dt>
+           Paypal
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaypalToken)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.UsuarioID }) |
+    @Html.ActionLink("Página Principal", "../Home/Index")
+</p>

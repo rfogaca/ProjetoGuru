@@ -1,0 +1,58 @@
+﻿@model ProjetoGuru.Models.Resposta
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Resposta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pergunta.Imagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pergunta.Imagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Texto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Texto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avaliacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avaliacao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RespostaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
