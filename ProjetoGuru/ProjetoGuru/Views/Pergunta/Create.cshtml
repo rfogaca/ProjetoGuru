@@ -1,7 +1,7 @@
 ﻿@model ProjetoGuru.Models.Pergunta
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Nova Pergunta";
 }
 
 <h2>Nova Pergunta</h2>
@@ -13,15 +13,11 @@
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.UsuarioID, "UsuarioID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.Hidden("UsuarioID", Session["usuarioID"])
-            </div>
-        </div>
+       
+        @Html.Hidden("UsuarioID", Session["usuarioID"])
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CategoriaID, "CategoriaID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CategoriaID, "Categoria", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("CategoriaID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CategoriaID, "", new { @class = "text-danger" })
@@ -43,7 +39,7 @@
                 @Html.ValidationMessageFor(model => model.Texto, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <!--
         <div class="form-group">
             @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -51,7 +47,7 @@
                 @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
             </div>
         </div>
-        <!--
+        
         <div class="form-group">
             @Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -62,7 +58,7 @@
         -->
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Publicar" class="btn btn-default" />
             </div>
         </div>
     </div>

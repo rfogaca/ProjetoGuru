@@ -17,6 +17,7 @@ namespace ProjetoGuru.Controllers
         // GET: Pergunta
         public ActionResult Index()
         {
+            ViewBag.Barra = " | ";
             var pergunta = db.Pergunta.Include(p => p.Categoria).Include(p => p.Usuario);
             return View(pergunta.ToList());
         }
@@ -53,6 +54,7 @@ namespace ProjetoGuru.Controllers
         {
             if (ModelState.IsValid)
             {
+                pergunta.Status = "A";
                 pergunta.Data = DateTime.Now;
                 db.Pergunta.Add(pergunta);
                 db.SaveChanges();

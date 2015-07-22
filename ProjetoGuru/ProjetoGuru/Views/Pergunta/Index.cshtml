@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<ProjetoGuru.Models.Pergunta>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Perguntas";
 }
 
-<h2>Index</h2>
+<h2>Lista de Perguntas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nova Pergunta", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Categoria.Nome)
+            Categoria
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Usuario.Email)
@@ -46,16 +46,25 @@
         <td>
             @Html.DisplayFor(modelItem => item.Texto)
         </td>
+
+        @if (item.Status == "A")
+        {
+            <td>Ativa</td>
+        }
+        
         <td>
-            @Html.DisplayFor(modelItem => item.Status)
+            @Html.DisplayFor(modelItem => item.Data)            
         </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PerguntaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PerguntaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PerguntaID })
+            @if ((string)Session["usuarioTipo"] == "1") {
+                
+                @Html.ActionLink("Editar", "Edit", new { id=item.PerguntaID })
+                @ViewBag.Barra;
+                @Html.ActionLink("Detalhes", "Details", new { id=item.PerguntaID })
+                @ViewBag.Barra;
+                @Html.ActionLink("Deletar", "Delete", new { id=item.PerguntaID })
+           }
         </td>
     </tr>
 }

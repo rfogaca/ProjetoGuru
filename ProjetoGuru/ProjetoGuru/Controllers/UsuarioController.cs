@@ -132,13 +132,17 @@ namespace ProjetoGuru.Controllers
         public ActionResult Login(Usuario usuario)
         {
             var autenticacao = db.Usuario.Where(a => a.Email.Equals(usuario.Email) && a.Senha.Equals(usuario.Senha)).FirstOrDefault();
+            
             if (autenticacao != null)
             {
                 var id = Session["usuarioID"] = autenticacao.UsuarioID.ToString();
                 var nome = Session["usuarioNome"] = autenticacao.Nome.ToString();
                 var email = Session["usuarioEmail"] = autenticacao.Email.ToString();
+                var tipoUsuario = Session["usuarioTipo"] = autenticacao.UsuarioTipoID.ToString();
+
                 return RedirectToAction("../Usuario/Details/" + id);
             }
+
             return View(usuario);
         }
 
