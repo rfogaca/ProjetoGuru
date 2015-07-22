@@ -142,5 +142,14 @@ namespace ProjetoGuru.Controllers
             return View(usuario);
         }
 
+        public ActionResult Logoff(Usuario usuario)
+        {
+            var id = Session["usuarioID"] = null;
+            var nome = Session["usuarioNome"] = null;
+            var email = Session["usuarioEmail"] = null;
+            
+            return RedirectToAction("../Home");
+        }
+
     }
 }

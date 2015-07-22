@@ -53,6 +53,7 @@ namespace ProjetoGuru.Controllers
         {
             if (ModelState.IsValid)
             {
+                pergunta.Data = DateTime.Now;
                 db.Pergunta.Add(pergunta);
                 db.SaveChanges();
                 return RedirectToAction("Index");
