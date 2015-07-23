@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProjetoGuru.Models.Pergunta>
+﻿@model List<ProjetoGuru.Models.Pergunta>
 
 @{
     ViewBag.Title = "Perguntas";
@@ -15,24 +15,30 @@
             Categoria
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Usuario.Email)
+            E-Mail
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Imagem)
+            Imagem
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Texto)
+            Texto
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status)
+            Status
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data)
+            Data
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
+    string sessao = Convert.ToString(Session["usuarioID"]);
+    string idUsuario = Convert.ToString(item.UsuarioID);
+    
+    if (idUsuario == sessao) {
+    
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Categoria.Nome)
@@ -51,22 +57,28 @@
         {
             <td>Ativa</td>
         }
-        
+       
         <td>
             @Html.DisplayFor(modelItem => item.Data)            
         </td>
 
         <td>
-            @if ((string)Session["usuarioTipo"] == "1") {
-                
-                @Html.ActionLink("Editar", "Edit", new { id=item.PerguntaID })
+            @if ((string)Session["usuarioTipo"] == "1" || (string)Session["usuarioTipo"] == "3")
+            {
+                @Html.ActionLink("Editar", "Edit", new { id = item.PerguntaID })
                 @ViewBag.Barra;
-                @Html.ActionLink("Detalhes", "Details", new { id=item.PerguntaID })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.PerguntaID })
                 @ViewBag.Barra;
-                @Html.ActionLink("Deletar", "Delete", new { id=item.PerguntaID })
-           }
-        </td>
+                @Html.ActionLink("Deletar", "Delete", new { id = item.PerguntaID })
+            }
+            else if ((string)Session["usuarioTipo"] == "2")
+            {
+                @Html.ActionLink("Detalhes", "Details", new { id = item.PerguntaID })
+            }
+        </td>  
     </tr>
+    
+    } 
 }
 
 </table>
