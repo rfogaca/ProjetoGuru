@@ -55,6 +55,6 @@ C:\Users\rodrigo.fogaca\Documents\Visual Studio 2013\Projects\ProjetoGuruGit\Pro
 C:\Users\rodrigo.fogaca\Documents\Visual Studio 2013\Projects\ProjetoGuruGit\ProjetoGuru\ProjetoGuru\bin\System.Web.WebPages.Razor.xml
 C:\Users\rodrigo.fogaca\Documents\Visual Studio 2013\Projects\ProjetoGuruGit\ProjetoGuru\ProjetoGuru\bin\Antlr3.Runtime.pdb
 C:\Users\rodrigo.fogaca\Documents\Visual Studio 2013\Projects\ProjetoGuruGit\ProjetoGuru\ProjetoGuru\bin\Newtonsoft.Json.xml
-C:\Users\rodrigo.fogaca\Documents\Visual Studio 2013\Projects\ProjetoGuruGit\ProjetoGuru\ProjetoGuru\obj\Debug\ProjetoGuru.csprojResolveAssemblyReference.cache
 C:\Users\rodrigo.fogaca\Documents\Visual Studio 2013\Projects\ProjetoGuruGit\ProjetoGuru\ProjetoGuru\obj\Debug\ProjetoGuru.dll
 C:\Users\rodrigo.fogaca\Documents\Visual Studio 2013\Projects\ProjetoGuruGit\ProjetoGuru\ProjetoGuru\obj\Debug\ProjetoGuru.pdb
+C:\Users\rodrigo.fogaca\Documents\Visual Studio 2013\Projects\ProjetoGuruGit\ProjetoGuru\ProjetoGuru\obj\Debug\ProjetoGuru.csprojResolveAssemblyReference.cache

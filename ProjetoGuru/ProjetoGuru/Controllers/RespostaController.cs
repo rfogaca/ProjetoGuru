@@ -54,6 +54,8 @@ namespace ProjetoGuru.Controllers
         {
             if (ModelState.IsValid)
             {
+                db.Pergunta.SqlQuery("UPDATE Pergunta SET Status='R' WHERE PerguntaID="+resposta.PerguntaID);
+                
                 resposta.Data = DateTime.Now;
                 db.Resposta.Add(resposta);
                 db.SaveChanges();
