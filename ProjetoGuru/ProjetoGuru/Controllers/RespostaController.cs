@@ -37,10 +37,11 @@ namespace ProjetoGuru.Controllers
         }
 
         // GET: Resposta/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            ViewData["id"]=id;
             ViewBag.PerguntaID = new SelectList(db.Pergunta, "PerguntaID", "Imagem");
-            ViewBag.UsuarioID = new SelectList(db.Usuario, "UsuarioID", "Email");
+           // ViewBag.UsuarioID = new SelectList(db.Usuario, "UsuarioID", "Email");
             return View();
         }
 
@@ -53,6 +54,7 @@ namespace ProjetoGuru.Controllers
         {
             if (ModelState.IsValid)
             {
+                resposta.Data = DateTime.Now;
                 db.Resposta.Add(resposta);
                 db.SaveChanges();
                 return RedirectToAction("Index");

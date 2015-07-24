@@ -1,10 +1,10 @@
 ﻿@model ProjetoGuru.Models.Usuario
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Perfil do Usuário";
 }
 
-<h2>Perfil do Usuario</h2>
+<h2>Perfil do Usuário</h2>
 
 <div>
     <hr />
@@ -61,6 +61,18 @@
 </div>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.UsuarioID }) |
-    @Html.ActionLink("Nova Pergunta", "../Pergunta/Create") |
-    @Html.ActionLink("Minhas Perguntas", "../Pergunta/Index")
+
+    @if((string)Session["usuarioID"] == "1"){
+        
+        @Html.ActionLink("Nova Pergunta", "../Pergunta/Create")
+        @ViewBag.Barra;
+        @Html.ActionLink("Minhas Perguntas", "../Pergunta/Index")
+        
+    }
+    else if ((string)Session["usuarioID"] == "2")
+    {
+        @Html.ActionLink("Cadastrar Categorias", "../UsuarioCategoria/Create")
+        @ViewBag.Barra;
+        @Html.ActionLink("Responder Perguntas", "../Pergunta/Index")
+    }
 </p>

@@ -17,6 +17,8 @@ namespace ProjetoGuru.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
+            ViewBag.Barra = " | ";
+
             var usuario = db.Usuario.Include(u => u.UsuarioTipo);
             return View(usuario.ToList());
         }
@@ -24,6 +26,8 @@ namespace ProjetoGuru.Controllers
         // GET: Usuario/Details/5
         public ActionResult Details(int? id)
         {
+            ViewBag.Barra = " | ";
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -151,7 +155,8 @@ namespace ProjetoGuru.Controllers
             var id = Session["usuarioID"] = null;
             var nome = Session["usuarioNome"] = null;
             var email = Session["usuarioEmail"] = null;
-            
+            var tipoUsuario = Session["usuarioTipo"] = null;
+
             return RedirectToAction("../Home");
         }
 

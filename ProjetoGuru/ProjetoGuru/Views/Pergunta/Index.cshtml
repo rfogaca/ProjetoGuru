@@ -36,8 +36,8 @@
 {
     string sessao = Convert.ToString(Session["usuarioID"]);
     string idUsuario = Convert.ToString(item.UsuarioID);
-    
-    if (idUsuario == sessao) {
+
+   if (idUsuario == sessao || (string)Session["usuarioTipo"] != "1") {
     
     <tr>
         <td>
@@ -74,10 +74,11 @@
             else if ((string)Session["usuarioTipo"] == "2")
             {
                 @Html.ActionLink("Detalhes", "Details", new { id = item.PerguntaID })
+                @ViewBag.Barra;
+                @Html.ActionLink("Responder", "../Resposta/Create", new { id = item.PerguntaID })
             }
         </td>  
     </tr>
-    
     } 
 }
 
