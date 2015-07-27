@@ -143,11 +143,15 @@ namespace ProjetoGuru.Controllers
                 var nome = Session["usuarioNome"] = autenticacao.Nome.ToString();
                 var email = Session["usuarioEmail"] = autenticacao.Email.ToString();
                 var tipoUsuario = Session["usuarioTipo"] = autenticacao.UsuarioTipoID.ToString();
-
+                
                 return RedirectToAction("../Usuario/Details/" + id);
             }
-
-            return View(usuario);
+            else
+            {
+                ViewBag.Error = "Usuário ou Senha errados";
+                return View();
+            }
+            return View();
         }
 
         public ActionResult Logoff(Usuario usuario)

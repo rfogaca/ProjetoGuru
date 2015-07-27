@@ -8,7 +8,9 @@ namespace ProjetoGuru.Models
     public partial class Conexao : DbContext
     {
         public Conexao()
-            : base("name=Conexao")
+            : base("name=Server")
+            //: base("name=LocalRodrigo")
+            //: base("name=LocalVencato")
         {
         }
 
