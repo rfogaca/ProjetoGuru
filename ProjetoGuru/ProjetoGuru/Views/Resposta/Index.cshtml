@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<ProjetoGuru.Models.Resposta>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Perguntas Respondidas";
 }
 
-<h2>Index</h2>
+<h2>Perguntas Respondidas</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,19 +12,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Pergunta.Imagem)
+            Imagem
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Usuario.Email)
+            E-Mail
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Texto)
+            Texto
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data)
+            Data
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Avaliacao)
+            Avaliação
         </th>
         <th></th>
     </tr>
