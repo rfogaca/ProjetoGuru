@@ -1,36 +1,36 @@
 ﻿@model IEnumerable<ProjetoGuru.Models.Usuario>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de Usuários";
 }
 
-<h2>Index</h2>
+<h2>Lista de Usuários</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Novo Usuário", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UsuarioTipo.Tipo)
+            Tipo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            E-mail
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nome)
+            Nome
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Imagem)
+            Imagem
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Senha)
+            Senha
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataNascimento)
+            Data de Nascimento
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PaypalToken)
+            Paypal
         </th>
         <th></th>
     </tr>
@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.PaypalToken)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UsuarioID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UsuarioID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UsuarioID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.UsuarioID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.UsuarioID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.UsuarioID })
         </td>
     </tr>
 }

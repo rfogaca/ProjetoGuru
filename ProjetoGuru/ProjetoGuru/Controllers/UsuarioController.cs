@@ -58,7 +58,7 @@ namespace ProjetoGuru.Controllers
             {
                 db.Usuario.Add(usuario);
                 db.SaveChanges();
-                return RedirectToAction("../Usuario/Details");
+                return RedirectToAction("../Home");
             }
 
             ViewBag.UsuarioTipoID = new SelectList(db.UsuarioTipo, "UsuarioTipoID", "Tipo", usuario.UsuarioTipoID);
