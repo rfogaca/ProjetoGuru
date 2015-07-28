@@ -62,16 +62,16 @@
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.UsuarioID }) |
 
-    @if((string)Session["usuarioID"] == "1"){
+    @if((string)Session["usuarioTipo"] == "1"){
         
         @Html.ActionLink("Nova Pergunta", "../Pergunta/Create")
         @ViewBag.Barra;
         @Html.ActionLink("Minhas Perguntas", "../Pergunta/Index")
         
     }
-    else if ((string)Session["usuarioID"] == "2")
+    else if ((string)Session["usuarioTipo"] == "2")
     {
-        @Html.ActionLink("Categorias Vinculadas", "../UsuarioCategoria/Index")
+        @Html.ActionLink("Categorias Vinculadas", "../UsuarioCategoria/Index/")
         @ViewBag.Barra;
         @Html.ActionLink("Responder Perguntas", "../Pergunta/Index")
     }

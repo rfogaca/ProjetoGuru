@@ -17,8 +17,16 @@ namespace ProjetoGuru.Controllers
         // GET: UsuarioCategoria
         public ActionResult Index()
         {
-            var usuarioCategoria = db.UsuarioCategoria.Include(u => u.Categoria).Include(u => u.Usuario);
-            return View(usuarioCategoria.ToList());
+            //Envia a lista completa 
+            //var usuarioCategoria = db.UsuarioCategoria.Include(u => u.Categoria).Include(u => u.Usuario);
+            //return View(usuarioCategoria.ToList());
+
+            int aux = Convert.ToInt16(Session["usuarioID"]);
+
+            List<UsuarioCategoria> x = (from u in db.UsuarioCategoria
+                                       where u.UsuarioID == aux
+                                       select u).ToList();
+            return View(x);
         }
 
         // GET: UsuarioCategoria/Details/5
