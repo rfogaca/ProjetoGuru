@@ -1,21 +1,21 @@
 ﻿@model IEnumerable<ProjetoGuru.Models.UsuarioCategoria>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Categorias Vinculadas";
 }
 
-<h2>Index</h2>
+<h2>Categorias Vinculadas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Vincular Categoria", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Categoria.Nome)
+            Nome
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Usuario.Email)
+            E-Mail
         </th>
         <th></th>
     </tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.Usuario.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UsuarioCategoriaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UsuarioCategoriaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UsuarioCategoriaID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.UsuarioCategoriaID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.UsuarioCategoriaID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.UsuarioCategoriaID })
         </td>
     </tr>
 }
