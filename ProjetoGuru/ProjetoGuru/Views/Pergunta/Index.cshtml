@@ -6,9 +6,12 @@
 
 <h2>Lista de Perguntas</h2>
 
+@if ((string)Session["usuarioTipo"] == "1" || (string)Session["usuarioTipo"] == "3")
+{
 <p>
     @Html.ActionLink("Nova Pergunta", "Create")
 </p>
+}
 <table class="table">
     <tr>
         <th>
