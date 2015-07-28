@@ -39,9 +39,12 @@ namespace ProjetoGuru.Controllers
         // GET: Resposta/Create
         public ActionResult Create(int id)
         {
-            ViewData["id"]=id;
+            var pergunta = (from u in db.Pergunta where u.PerguntaID == id select u).FirstOrDefault();
+            string textoPergunta = Convert.ToString(pergunta.Texto);
+
+            ViewBag.Pergunta = textoPergunta;
             ViewBag.PerguntaID = new SelectList(db.Pergunta, "PerguntaID", "Imagem");
-           // ViewBag.UsuarioID = new SelectList(db.Usuario, "UsuarioID", "Email");
+
             return View();
         }
 
