@@ -30,6 +30,18 @@ namespace ProjetoGuru.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Pergunta pergunta = db.Pergunta.Find(id);
+            
+            var resposta = (from u in db.Resposta where u.PerguntaID == id select u).FirstOrDefault();
+
+            if (resposta != null)
+            {
+                ViewBag.resposta = resposta.Texto;
+            }
+            else
+            {
+                ViewBag.resposta = "Sem resposta";
+            }
+
             if (pergunta == null)
             {
                 return HttpNotFound();

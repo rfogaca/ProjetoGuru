@@ -1,38 +1,14 @@
 ﻿@model ProjetoGuru.Models.Pergunta
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes da Pergunta";
 }
 
-<h2>Details</h2>
+<h2>Detalhes da Pergunta</h2>
 
 <div>
-    <h4>Pergunta</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Categoria.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Categoria.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuario.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Imagem)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Imagem)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Texto)
@@ -57,10 +33,17 @@
         <dd>
             @Html.DisplayFor(model => model.Data)
         </dd>
-
+        <br />
+        <dt>
+            Resposta
+        </dt>
+        
+        <dd>
+            @ViewBag.resposta
+        </dd>
+        
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PerguntaID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Minhas Perguntas", "Index")
 </p>

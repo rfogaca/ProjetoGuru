@@ -39,6 +39,7 @@ namespace ProjetoGuru.Controllers
         // GET: Resposta/Create
         public ActionResult Create(int id)
         {
+            ViewData["id"] = id;
             var pergunta = (from u in db.Pergunta where u.PerguntaID == id select u).FirstOrDefault();
             string textoPergunta = Convert.ToString(pergunta.Texto);
 
@@ -55,10 +56,12 @@ namespace ProjetoGuru.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RespostaID,PerguntaID,UsuarioID,Texto,Data,Avaliacao")] Resposta resposta)
         {
+            
             if (ModelState.IsValid)
             {
-                db.Pergunta.SqlQuery("UPDATE Pergunta SET Status='R' WHERE PerguntaID="+resposta.PerguntaID);
-                
+                var pergunta = (from u in db.Pergunta where u.PerguntaID == resposta.PerguntaID select u).FirstOrDefault();
+                pergunta.Status = "R";
+                //db.Pergunta.SqlQuery("UPDATE Pergunta SET Status='R' WHERE PerguntaID="+resposta.PerguntaID);
                 resposta.Data = DateTime.Now;
                 db.Resposta.Add(resposta);
                 db.SaveChanges();
