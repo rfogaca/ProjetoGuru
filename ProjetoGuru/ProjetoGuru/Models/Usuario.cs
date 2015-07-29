@@ -19,24 +19,31 @@ namespace ProjetoGuru.Models
 
         public int UsuarioID { get; set; }
 
+        [Required(ErrorMessage = "O campo 'E-Mail' obrigatório")]
         [StringLength(200)]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "O campo 'Nome' obrigatório")]
         [StringLength(200)]
         public string Nome { get; set; }
 
+        [Required(ErrorMessage = "O campo 'Imagem' obrigatório")]
         [StringLength(50)]
         public string Imagem { get; set; }
 
+        [Required(ErrorMessage = "O campo 'Senha' obrigatório")]
         [StringLength(100)]
         public string Senha { get; set; }
 
+        [Required(ErrorMessage = "O campo 'Data de Nascimento' obrigatório")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Column(TypeName = "date")]
         public DateTime? DataNascimento { get; set; }
 
         [StringLength(200)]
         public string PaypalToken { get; set; }
 
+        [Required(ErrorMessage = "O campo 'Tipo de Usuário' obrigatório")]
         public int? UsuarioTipoID { get; set; }
 
         public virtual ICollection<Pergunta> Pergunta { get; set; }

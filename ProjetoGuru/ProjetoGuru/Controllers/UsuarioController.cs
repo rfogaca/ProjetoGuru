@@ -133,17 +133,24 @@ namespace ProjetoGuru.Controllers
             base.Dispose(disposing);
         }
 
+        public ActionResult Login()
+        {
+            return View();           
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(Usuario usuario)
         {
             var autenticacao = db.Usuario.Where(a => a.Email.Equals(usuario.Email) && a.Senha.Equals(usuario.Senha)).FirstOrDefault();
-            
+
             if (autenticacao != null)
             {
                 var id = Session["usuarioID"] = autenticacao.UsuarioID.ToString();
                 var nome = Session["usuarioNome"] = autenticacao.Nome.ToString();
                 var email = Session["usuarioEmail"] = autenticacao.Email.ToString();
                 var tipoUsuario = Session["usuarioTipo"] = autenticacao.UsuarioTipoID.ToString();
-                
+
                 return RedirectToAction("../Usuario/Details/" + id);
             }
             else
@@ -151,9 +158,7 @@ namespace ProjetoGuru.Controllers
                 ViewBag.Error = "Usuário ou Senha errados";
                 return View();
             }
-            return View();
         }
-
         public ActionResult Logoff(Usuario usuario)
         {
             var id = Session["usuarioID"] = null;
