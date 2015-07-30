@@ -16,9 +16,7 @@
         @Html.HiddenFor(model => model.UsuarioID)
 
         <div class="form-group">
-            <label class="control-label col-md-2">
-                Nome
-            </label>
+            @Html.LabelFor(model => model.Nome, "Nome", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
@@ -26,9 +24,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">
-                E-Mail
-            </label>
+            @Html.LabelFor(model => model.Email, "E-Mail", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
@@ -36,9 +32,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">
-                Imagem
-            </label>
+            @Html.LabelFor(model => model.Imagem, "Imagem", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Imagem, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Imagem, "", new { @class = "text-danger" })
@@ -46,9 +40,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">
-                Senha
-            </label>
+            @Html.LabelFor(model => model.Senha, "Senha", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
@@ -56,9 +48,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">
-                Data de Nascimento
-            </label>
+            @Html.LabelFor(model => model.DataNascimento, "Data de Nascimento", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
@@ -66,9 +56,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">
-                Paypal
-            </label>
+            @Html.LabelFor(model => model.PaypalToken, "Paypal", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PaypalToken, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PaypalToken, "", new { @class = "text-danger" })
@@ -76,9 +64,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">
-                Tipo de Usuário
-            </label>
+            @Html.LabelFor(model => model.UsuarioTipoID, "Tipo de Usuário", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("UsuarioTipoID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.UsuarioTipoID, "", new { @class = "text-danger" })
@@ -94,5 +80,5 @@
 }
 
 <div>
-    @Html.ActionLink("Voltar para o Perfil", "../Usuario/Details/"+Session["usuarioID"])
+    @Html.ActionLink("Perfil de Usuário", "../Usuario/Details/"+Session["usuarioID"])
 </div>

@@ -92,7 +92,7 @@ namespace ProjetoGuru.Controllers
             {
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Usuario/Details/"+Session["usuarioID"]);
             }
             ViewBag.UsuarioTipoID = new SelectList(db.UsuarioTipo, "UsuarioTipoID", "Tipo", usuario.UsuarioTipoID);
             return View(usuario);
