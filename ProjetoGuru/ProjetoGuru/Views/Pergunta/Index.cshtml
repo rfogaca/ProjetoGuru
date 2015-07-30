@@ -37,10 +37,7 @@
 
 @foreach (var item in Model)
 {
-    string sessao = Convert.ToString(Session["usuarioID"]);
-    string idUsuario = Convert.ToString(item.UsuarioID);
 
-   if (idUsuario == sessao || (string)Session["usuarioTipo"] != "1") {
     
     <tr>
         <td>
@@ -64,6 +61,10 @@
         {
             <td>Respondida</td>
         }
+        else if (item.Status == "D")
+        {
+            <td>Deletada</td>
+        }
        
         <td>
             @Html.DisplayFor(modelItem => item.Data)            
@@ -85,8 +86,7 @@
                 @Html.ActionLink("Responder", "../Resposta/Create", new { id = item.PerguntaID })
             }
         </td>  
-    </tr>
-    } 
+    </tr> 
 }
 
 </table>

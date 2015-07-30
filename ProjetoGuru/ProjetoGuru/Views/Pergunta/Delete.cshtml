@@ -1,18 +1,17 @@
 ﻿@model ProjetoGuru.Models.Pergunta
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Deletar pergunta";
 }
 
-<h2>Delete</h2>
+<h2>Deletar pergunta</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja deletar esta pergunta?</h3>
 <div>
-    <h4>Pergunta</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Categoria.Nome)
+            Categoria
         </dt>
 
         <dd>
@@ -20,23 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Usuario.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuario.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Imagem)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Imagem)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Texto)
+            Texto
         </dt>
 
         <dd>
@@ -44,15 +27,24 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Status)
+            Status
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
+        @if (Model.Status == "A")
+        {
+            <dd>
+                Ativa
+            </dd>
+        }
+        else if (Model.Status == "R")
+        {
+            <dd>
+                Respondida
+            </dd>
+        }
 
         <dt>
-            @Html.DisplayNameFor(model => model.Data)
+            Data
         </dt>
 
         <dd>
@@ -65,8 +57,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Detelar" class="btn btn-default" /> |
+            @Html.ActionLink("Lista de Perguntas", "Index")
         </div>
     }
 </div>

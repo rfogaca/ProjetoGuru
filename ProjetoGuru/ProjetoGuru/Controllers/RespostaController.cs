@@ -61,7 +61,7 @@ namespace ProjetoGuru.Controllers
             {
                 var pergunta = (from u in db.Pergunta where u.PerguntaID == resposta.PerguntaID select u).FirstOrDefault();
                 pergunta.Status = "R";
-                //db.Pergunta.SqlQuery("UPDATE Pergunta SET Status='R' WHERE PerguntaID="+resposta.PerguntaID);
+
                 resposta.Data = DateTime.Now;
                 db.Resposta.Add(resposta);
                 db.SaveChanges();

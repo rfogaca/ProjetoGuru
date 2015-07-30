@@ -18,8 +18,33 @@ namespace ProjetoGuru.Controllers
         public ActionResult Index()
         {
             ViewBag.Barra = " | ";
+
+            int aux = Convert.ToInt16(Session["usuarioID"]);
+
+            string sessao = Convert.ToString(Session["UsuarioTipo"]);
+            if (sessao == "1")
+            {
+                List<Pergunta> x = (from u in db.Pergunta
+                                        where u.UsuarioID == aux && u.Status != "D"
+                                        select u).ToList();
+                return View(x);
+            } 
+
+            else if(sessao == "2")
+            {
+                var a = (from L1 in db.Pergunta
+                         join L2 in db.UsuarioCategoria
+                         on L1.CategoriaID equals L2.CategoriaID
+                         where L2.UsuarioID == aux
+                         select L1);
+
+                return View(a.ToList());
+            }
+            
+           
             var pergunta = db.Pergunta.Include(p => p.Categoria).Include(p => p.Usuario);
             return View(pergunta.ToList());
+
         }
 
         // GET: Pergunta/Details/5
@@ -134,7 +159,7 @@ namespace ProjetoGuru.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Pergunta pergunta = db.Pergunta.Find(id);
-            db.Pergunta.Remove(pergunta);
+            pergunta.Status = "D";
             db.SaveChanges();
             return RedirectToAction("Index");
         }
