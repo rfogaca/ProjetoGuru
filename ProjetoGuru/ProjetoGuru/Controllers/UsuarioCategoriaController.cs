@@ -61,9 +61,15 @@ namespace ProjetoGuru.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.UsuarioCategoria.Add(usuarioCategoria);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var categoria = (from u in db.UsuarioCategoria
+                                 where u.CategoriaID == usuarioCategoria.CategoriaID && u.UsuarioID == usuarioCategoria.UsuarioID
+                                 select u).FirstOrDefault();
+
+                if(categoria == null){
+                    db.UsuarioCategoria.Add(usuarioCategoria);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             ViewBag.CategoriaID = new SelectList(db.Categoria, "CategoriaID", "Nome", usuarioCategoria.CategoriaID);

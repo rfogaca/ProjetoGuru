@@ -35,7 +35,7 @@ namespace ProjetoGuru.Controllers
                 var a = (from L1 in db.Pergunta
                          join L2 in db.UsuarioCategoria
                          on L1.CategoriaID equals L2.CategoriaID
-                         where L2.UsuarioID == aux
+                         where L2.UsuarioID == aux && L1.Status != "D"
                          select L1);
 
                 return View(a.ToList());

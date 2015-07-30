@@ -1,40 +1,30 @@
 ﻿@model ProjetoGuru.Models.UsuarioCategoria
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Desvincular Categoria";
 }
 
-<h2>Delete</h2>
+<h2>Desvincular Categoria</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja desvincular esta categoria?</h3>
 <div>
-    <h4>UsuarioCategoria</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Categoria.Nome)
+            Categoria
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Categoria.Nome)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuario.Email)
-        </dd>
-
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Desvincular" class="btn btn-default" /> |
+            @Html.ActionLink("Categorias Vinculadas", "Index")
         </div>
     }
 </div>
