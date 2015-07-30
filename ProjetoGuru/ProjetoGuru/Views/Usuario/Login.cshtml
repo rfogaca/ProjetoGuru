@@ -12,6 +12,10 @@
     <div class="form-horizontal">
         <!-- <h4>Usuario</h4> -->
         <hr />
+        @if (!String.IsNullOrEmpty(ViewBag.Error))
+        {
+            <h3 style="color:red">@ViewBag.Error</h3>
+        }
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
