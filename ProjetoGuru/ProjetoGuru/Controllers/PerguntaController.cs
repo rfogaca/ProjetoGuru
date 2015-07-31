@@ -50,11 +50,26 @@ namespace ProjetoGuru.Controllers
         // GET: Pergunta/Details/5
         public ActionResult Details(int? id)
         {
+            ViewData["id"] = id;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Pergunta pergunta = db.Pergunta.Find(id);
+            
+            if (pergunta.Status == "A")
+            {
+                ViewBag.Mensagem = "Ativa";
+            }
+            else if (pergunta.Status == "R")
+            {
+                ViewBag.Mensagem = "Respondida";
+            }
+            else if (pergunta.Status == "D")
+            {
+                ViewBag.Mensagem = "Deletada";
+            }
             
             var resposta = (from u in db.Resposta where u.PerguntaID == id select u).FirstOrDefault();
 

@@ -1,5 +1,4 @@
 ﻿@model ProjetoGuru.Models.Pergunta
-
 @{
     ViewBag.Title = "Detalhes da Pergunta";
 }
@@ -23,7 +22,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Status)
+            @ViewBag.Mensagem
         </dd>
 
         <dt>
