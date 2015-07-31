@@ -65,7 +65,7 @@ namespace ProjetoGuru.Controllers
                 resposta.Data = DateTime.Now;
                 db.Resposta.Add(resposta);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Pergunta");
             }
 
             ViewBag.PerguntaID = new SelectList(db.Pergunta, "PerguntaID", "Imagem", resposta.PerguntaID);

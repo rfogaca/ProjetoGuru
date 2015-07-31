@@ -9,18 +9,21 @@
 <p>
     @Html.ActionLink("Vincular Categoria", "Create")
 </p>
-<br />
+
 <table class="table">
     <tr>
         <th>
             Lista de Categorias Vinculadas
         </th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Categoria.Nome) |
+            @Html.DisplayFor(modelItem => item.Categoria.Nome)
+        </td>
+        <td>
             @Html.ActionLink("Deletar", "Delete", new { id = item.UsuarioCategoriaID })
         </td>
     </tr>
@@ -28,5 +31,5 @@
 
 </table>
 <div>
-    @Html.ActionLink("Perfil do Usuário", "../Usuario/Details/"+Session["usuarioID"])
+    @Html.ActionLink("Perfil de Usuário", "../Usuario/Details/"+Session["usuarioID"])
 </div>
