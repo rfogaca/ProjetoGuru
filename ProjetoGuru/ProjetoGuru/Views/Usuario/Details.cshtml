@@ -75,4 +75,12 @@
         @ViewBag.Barra;
         @Html.ActionLink("Responder Perguntas", "../Pergunta/Index")
     }
+    else if ((string)Session["usuarioTipo"] == "3")
+    {
+        @Html.ActionLink("Lista de Usuários", "../Usuario")
+        @ViewBag.Barra;
+        @Html.ActionLink("Lista de Perguntas", "../Pergunta")
+        @ViewBag.Barra;
+        @Html.ActionLink("Lista de Categorias", "../Categoria")
+    }
 </p>
