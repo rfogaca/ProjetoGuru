@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace GuruADO
 {
-	public class CategoriaADO
+	public class CategoriaADO : BaseADO
 	{
-		Context db = new Context();
-		
+		public CategoriaADO() : base () {}
 		public List<Categoria> ListarCategorias ()
 		{
 			return db.Categoria.ToList();

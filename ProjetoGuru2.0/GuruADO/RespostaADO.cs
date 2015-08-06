@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GuruADO
 {
-	public class RespostaADO
+	public class RespostaADO : BaseADO
 	{
+		public RespostaADO() : base() { }
 	}
 }

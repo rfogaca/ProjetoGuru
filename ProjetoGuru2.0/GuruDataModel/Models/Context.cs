@@ -10,6 +10,7 @@ namespace GuruDataModel
 		public Context()
 			: base("name=LocalContext")
 		{
+			this.Configuration.LazyLoadingEnabled = false;
 		}
 
 		public virtual DbSet<Categoria> Categoria { get; set; }

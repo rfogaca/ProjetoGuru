@@ -10,11 +10,6 @@ namespace GuruBO
 {
     public class PerguntaBO
     {
-		PerguntaADO ado = new PerguntaADO();
-		public List<Pergunta> Listar (int usuarioID)
-		{
-			return ado.ListAll (usuarioID);
-
-		}
+		
     }
 }

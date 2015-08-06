@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GuruADO
 {
-	public class UsuarioTipoADO
+	public class UsuarioTipoADO : BaseADO
 	{
+		public UsuarioTipoADO() : base() { }
 	}
 }

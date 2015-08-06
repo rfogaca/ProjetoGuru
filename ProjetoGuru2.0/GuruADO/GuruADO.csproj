@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseADO.cs" />
     <Compile Include="CategoriaADO.cs" />
     <Compile Include="PerguntaADO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
