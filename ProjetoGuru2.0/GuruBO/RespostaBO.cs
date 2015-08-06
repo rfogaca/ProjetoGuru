@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuruBO
 {
-	class RespostaBO
+	public class RespostaBO
 	{
 	}
 }

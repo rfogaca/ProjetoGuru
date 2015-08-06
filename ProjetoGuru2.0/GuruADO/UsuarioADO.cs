@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuruADO
 {
-	class UsuarioADO
+	public class UsuarioADO
 	{
 	}
 }

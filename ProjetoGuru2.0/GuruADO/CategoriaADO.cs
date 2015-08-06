@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace GuruADO
 {
-	class CategoriaADO
+	public class CategoriaADO
 	{
 		Context db = new Context();
 		
-		public List<Categoria> ListCategorias ()
+		public List<Categoria> ListarCategorias ()
 		{
 			return db.Categoria.ToList();
 		}
-		public Categoria ListarCategorias (int id)
+		public Categoria ConsultarCategorias (int id)
 		{
 			return db.Categoria.Where(categoria => categoria.CategoriaID == id).FirstOrDefault();
 		}
