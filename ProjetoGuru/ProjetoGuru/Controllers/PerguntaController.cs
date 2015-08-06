@@ -24,9 +24,7 @@ namespace ProjetoGuru.Controllers
             string sessao = Convert.ToString(Session["UsuarioTipo"]);
             if (sessao == "1")
             {
-                List<Pergunta> x = (from u in db.Pergunta
-                                        where u.UsuarioID == aux && u.Status != "D"
-                                        select u).ToList();
+				List<Pergunta> x = Listar(aux);
                 return View(x);
             } 
 
@@ -46,6 +44,19 @@ namespace ProjetoGuru.Controllers
             return View(pergunta.ToList());
 
         }
+
+		private List<Pergunta> Listar(int aux)
+		{
+			return ListarAdo(aux);
+		}
+
+		private List<Pergunta> ListarAdo(int aux)
+		{
+			List<Pergunta> x = (from u in db.Pergunta
+								where u.UsuarioID == aux && u.Status != "D"
+								select u).ToList();
+			return x;
+		}
 
         // GET: Pergunta/Details/5
         public ActionResult Details(int? id)
