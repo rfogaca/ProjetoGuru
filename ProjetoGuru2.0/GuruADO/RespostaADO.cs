@@ -12,10 +12,9 @@ namespace GuruADO
 	{
 		public RespostaADO() : base() { }
 
-        public Resposta ConsultarRespostas(int id)
+        public List<Resposta> ConsultarRespostas(int PerguntaID)
         {
-            //Nesse caso o id representa o identificador da Pergunta
-            return db.Resposta.Where(resposta => resposta.PerguntaID == id).FirstOrDefault();
+            return db.Resposta.Include(pergunta => pergunta.Pergunta).Where(resposta => resposta.PerguntaID == PerguntaID).OrderBy(data => data.Data).ToList();
         }
         public Boolean CriarResposta(Resposta resposta)
         {
