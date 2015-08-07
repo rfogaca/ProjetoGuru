@@ -16,7 +16,7 @@ namespace GuruADO
         {
             return db.Resposta.Include(pergunta => pergunta.Pergunta).Where(resposta => resposta.PerguntaID == PerguntaID).OrderBy(data => data.Data).ToList();
         }
-        public Boolean CriarResposta(Resposta resposta)
+        public Boolean CreateResposta(Resposta resposta)
         {
             try
             {
