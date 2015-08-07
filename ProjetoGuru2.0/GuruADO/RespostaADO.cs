@@ -44,11 +44,11 @@ namespace GuruADO
                 return false;
             }
         }
-        public Boolean DeleteResposta(int id)
+        public Boolean DeleteResposta(int PerguntaID)
         {
             try
             {
-                db.Resposta.Remove(db.Resposta.Find(id));
+                db.Resposta.Remove(db.Resposta.Find(PerguntaID));
                 db.SaveChanges();
                 return true;
             }
