@@ -299,6 +299,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administrador\" />
+    <Folder Include="Areas\Consultor\" />
     <Folder Include="Filters\" />
     <Folder Include="Models\" />
   </ItemGroup>
