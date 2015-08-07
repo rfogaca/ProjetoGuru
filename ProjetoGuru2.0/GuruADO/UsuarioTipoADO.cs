@@ -47,7 +47,7 @@ namespace GuruADO
 				return false;
 			}
 		}
-		public Boolean DeleteCategoria(int id)
+		public Boolean DeleteUsuarioTipo(int id)
 		{
 			try
 			{
