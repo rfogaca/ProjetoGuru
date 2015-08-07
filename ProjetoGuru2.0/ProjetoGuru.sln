@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuruADO", "GuruADO\GuruADO.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuruBO", "GuruBO\GuruBO.csproj", "{B066BC3E-F17C-41EA-BD0C-72524BDC560C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "Admin\Admin.csproj", "{DD1A18A8-8F9E-429B-BEA0-2A73052D5D37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B066BC3E-F17C-41EA-BD0C-72524BDC560C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B066BC3E-F17C-41EA-BD0C-72524BDC560C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B066BC3E-F17C-41EA-BD0C-72524BDC560C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD1A18A8-8F9E-429B-BEA0-2A73052D5D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD1A18A8-8F9E-429B-BEA0-2A73052D5D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD1A18A8-8F9E-429B-BEA0-2A73052D5D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD1A18A8-8F9E-429B-BEA0-2A73052D5D37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

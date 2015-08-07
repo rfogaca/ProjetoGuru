@@ -17,7 +17,6 @@ namespace GuruADO
             //Nesse caso o id representa o identificador da Pergunta
             return db.Resposta.Where(resposta => resposta.PerguntaID == id).FirstOrDefault();
         }
-        //pai de cat
         public Boolean CriarResposta(Resposta resposta)
         {
             try

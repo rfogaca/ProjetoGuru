@@ -9,7 +9,8 @@ namespace GuruADO
 {
 	public class CategoriaADO : BaseADO
 	{
-		public CategoriaADO() : base () {}
+		//criar consuta pai de categoria
+		public CategoriaADO() : base() { }
 		public List<Categoria> ListarCategorias ()
 		{
 			return db.Categoria.ToList();
@@ -18,7 +19,6 @@ namespace GuruADO
 		{
 			return db.Categoria.Where(categoria => categoria.CategoriaID == id).FirstOrDefault();
 		}
-		//pai de cat
 		public Boolean CreateCategoria(Categoria categoria)
 		{
 			try

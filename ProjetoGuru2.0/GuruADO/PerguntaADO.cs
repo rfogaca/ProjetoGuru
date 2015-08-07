@@ -11,13 +11,16 @@ namespace GuruADO
     public class PerguntaADO : BaseADO
 	{
 		public PerguntaADO() : base() { }
-		public List<Pergunta> ListarPerguntas(int usuarioID, string status = "D")
+		//Lista todas as perguntas inclusive as deletadas
+		public List<Pergunta> ListarPerguntas(int usuarioID)
 		{
 			return db.Pergunta.Include(x => x.Resposta).ToList();
 		}
-		public List<Pergunta> ConsiltaPerguntasUsuario (int usuarioID, string status = "D")
+		//Pesquisa pelas peguntas do susuários não deletadas
+		public List<Pergunta> ConsultaPerguntasUsuario (int usuarioID)
 		{
-			return db.Pergunta.Where(pergunta => pergunta.PerguntaID == usuarioID && status == "D").OrderBy(x => x.Data).ToList();
+			//return db.Pergunta.Where(pergunta => pergunta.PerguntaID == usuarioID && status != "D").OrderBy(x => x.Data).ToList();
 		}
+		//Pesquisa pelas perguntas do usuário de acordo com o status
     }
 }
