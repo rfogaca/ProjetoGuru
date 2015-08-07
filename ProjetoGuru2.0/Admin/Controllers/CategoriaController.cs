@@ -14,6 +14,7 @@ namespace Admin.Controllers
         // GET: Categoria
         public ActionResult Index()
         {
+			
 			return View();
         }
     }
