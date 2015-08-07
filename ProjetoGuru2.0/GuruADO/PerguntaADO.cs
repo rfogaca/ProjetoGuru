@@ -12,11 +12,11 @@ namespace GuruADO
 	{
 		public PerguntaADO() : base() { }
 		//Lista todas as perguntas inclusive as deletadas
-		public List<Pergunta> ListarPerguntas(int usuarioID)
+		public List<Pergunta> ListarPerguntas()
 		{
 			return db.Pergunta.Include(pergunta => pergunta.Resposta).ToList();
 		}
-		//Pesquisa pelas peguntas do susuários não deletadas
+		//Pesquisa pelas peguntas do usuários não deletadas
 		public List<Pergunta> ConsultaPerguntasUsuario (int usuarioID)
 		{
 			return db.Pergunta.Where(pergunta => pergunta.PerguntaID == usuarioID && pergunta.Status != "D").OrderBy(pergunta => pergunta.Data).ToList();

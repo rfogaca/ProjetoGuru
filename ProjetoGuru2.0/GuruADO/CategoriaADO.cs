@@ -11,10 +11,12 @@ namespace GuruADO
 	{
 		//criar consuta pai de categoria
 		public CategoriaADO() : base() { }
+		//Lista todas as categorias
 		public List<Categoria> ListarCategorias ()
 		{
 			return db.Categoria.ToList();
 		}
+		//Retorna uma categoria a partir do seu id
 		public Categoria ConsultarCategorias (int id)
 		{
 			return db.Categoria.Where(categoria => categoria.CategoriaID == id).FirstOrDefault();
