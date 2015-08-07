@@ -181,7 +181,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PerguntaController.cs" />
+    <Compile Include="Controllers\RespostaController.cs" />
+    <Compile Include="Controllers\UsuarioCategoriaController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\UsuarioCreditoController.cs" />
+    <Compile Include="Controllers\UsuarioTipoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -297,6 +304,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GuruBO\GuruBO.csproj">
+      <Project>{b066bc3e-f17c-41ea-bd0c-72524bdc560c}</Project>
+      <Name>GuruBO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GuruDataModel\GuruDataModel.csproj">
+      <Project>{9dcca927-50af-4d7e-8679-c843785108ac}</Project>
+      <Name>GuruDataModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
