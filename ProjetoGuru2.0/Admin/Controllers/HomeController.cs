@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Admin.Models;
 
 namespace Admin.Controllers
 {
@@ -10,10 +11,14 @@ namespace Admin.Controllers
 	{
 		public ActionResult Index()
 		{
-			ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 			return View();
 		}
 
+        [HttpPost]
+        public ActionResult Index(LoginViewModel usuario)
+        {
+            return View();
+        }
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your app description page.";
