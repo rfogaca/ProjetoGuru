@@ -4,14 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Admin.Controllers
+namespace Admin.Areas.Administrador.Controllers
 {
-    public class UsuarioTipoController : Controller
+    public class UsuarioCategoriaController : Controller
     {
-        // GET: UsuarioTipo
+        //
+        // GET: /Administrador/UsuarioCategoria/
+
         public ActionResult Index()
         {
             return View();
         }
+
     }
 }

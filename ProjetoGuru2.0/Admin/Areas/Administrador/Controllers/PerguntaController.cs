@@ -4,14 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Admin.Controllers
+namespace Admin.Areas.Administrador.Controllers
 {
-    public class RespostaController : Controller
+    public class PerguntaController : Controller
     {
-        // GET: Resposta
+        //
+        // GET: /Administrador/Pergunta/
+
         public ActionResult Index()
         {
             return View();
         }
+
     }
 }

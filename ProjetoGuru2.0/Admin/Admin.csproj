@@ -181,14 +181,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\CategoriaController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\PerguntaController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\RespostaController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\UsuarioCategoriaController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\UsuarioController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\UsuarioCreditoController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\UsuarioTipoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PerguntaController.cs" />
-    <Compile Include="Controllers\RespostaController.cs" />
-    <Compile Include="Controllers\UsuarioCategoriaController.cs" />
-    <Compile Include="Controllers\UsuarioController.cs" />
-    <Compile Include="Controllers\UsuarioCreditoController.cs" />
-    <Compile Include="Controllers\UsuarioTipoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -252,6 +252,16 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Areas\Administrador\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Administrador\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administrador\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Administrador\Views\Web.config" />
+    <Content Include="Areas\Administrador\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Consultor\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Consultor\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Consultor\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Consultor\Views\Web.config" />
+    <Content Include="Areas\Consultor\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -298,8 +308,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administrador\" />
-    <Folder Include="Areas\Consultor\" />
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>

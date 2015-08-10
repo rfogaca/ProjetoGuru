@@ -6,15 +6,17 @@ using System.Web.Mvc;
 using GuruDataModel;
 using GuruBO;
 
-namespace Admin.Controllers
+namespace Admin.Areas.Administrador.Controllers
 {
     public class CategoriaController : Controller
-    {	
-		CategoriaBO bo = new CategoriaBO();
-        // GET: Categoria
-        public ActionResult Index()
-        {
+    {
+        CategoriaBO bo = new CategoriaBO();
+		//
+		// GET: /Administrador/Categoria/
+		public ActionResult Index()
+		{
+
 			return View();
-        }
+		}
     }
 }
