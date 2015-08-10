@@ -10,7 +10,7 @@ namespace Admin.Areas.Administrador.Controllers
 {
     public class CategoriaController : Controller
     {
-        CategoriaBO bo = new CategoriaBO();
+        CategoriaBO bo = new CategoriaBO(); 
 		//
 		// GET: /Administrador/Categoria/
 		public ActionResult Index()
